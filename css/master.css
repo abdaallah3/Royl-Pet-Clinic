@@ -1027,9 +1027,6 @@ body {
 }
 
 @media (max-width: 575px) {
-    .our-server .box .icone {
-        display: none;
-    }
     .server .all-box {
         margin-top: 0;
         gap: 10px;
