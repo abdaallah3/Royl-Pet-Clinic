@@ -211,7 +211,7 @@ function sendEmail(e) {
 
   if (name.value === "") {
     name.classList.add("errorfiled");
-    errorName.innerHTML = "Input Your Name";
+    errorName.innerHTML = "Enter Your Name";
   } else {
     name.classList.remove("errorfiled");
     errorName.innerHTML = "";
@@ -219,7 +219,7 @@ function sendEmail(e) {
   // 0000000000000
   if (email.value === "") {
     email.classList.add("errorfiled");
-    errorGmail.innerHTML = "Input Your Gmail ";
+    errorGmail.innerHTML = "Enter Your Gmail ";
   } else {
     email.classList.remove("errorfiled");
     errorGmail.innerHTML = "";
@@ -228,7 +228,7 @@ function sendEmail(e) {
   if (phone.value === "" || phone.value.length <= 10) {
     phone.classList.add("errorfiled");
     console.log(errorPhone);
-    errorPhone.innerHTML = "Enter Your Correct Phone ";
+    errorPhone.innerHTML = "Enter Your Real Number ";
   } else {
     phone.classList.remove("errorfiled");
     errorPhone.innerHTML = "";
@@ -236,7 +236,7 @@ function sendEmail(e) {
   // 0000000000000
   if (message.value === "") {
     message.classList.add("errorfiled");
-    errorMessage.innerHTML = "Input Your Message !! ";
+    errorMessage.innerHTML = "Enter Your Message !! ";
   } else {
     message.classList.remove("errorfiled");
     errorMessage.innerHTML = "";
