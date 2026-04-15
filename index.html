@@ -381,7 +381,7 @@
           <div class="contant">
             <div class="box-info">
               <div class="hed">
-                <span>Veterinary team</span>
+                <span>veterinary team</span>
                 <h2>Meet our team</h2>
               </div>
             </div>
@@ -484,29 +484,41 @@
             </div>
           </div>
           <div class="forme">
-            <form action="">
+            <form id="contactForm">
               <div class="box-input">
                 <span>Your Name</span>
-                <input type="text" />
+                <div class="error"> <span></span></div>
+                <input  type="text" id="name" />
               </div>
               <div class="box-input">
                 <span>Your Email</span>
-                <input type="email" />
+                <div class="error"> <span></span></div>
+                <input type="email" id="email"/>
               </div>
               <div class="box-input">
-                <span>Subject</span>
-                <input type="text" />
+                <span>Phone</span>
+                <div class="error"> <span></span></div>
+                <input type="text" id="phone"/>  
               </div>
               <div class="box-input">
                 <span>Your Message</span>
-                <textarea name="sessage" id=""></textarea>
+                <div class="error"> <span></span></div>
+                <textarea name="sessage" id="message"></textarea>
               </div>
-              <button>Submit</button>
+              <button id="submit">Submit</button>
+         
+              </div>
             </form>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+        <div class="center" id="conter">
+         <div class="conte">
+           <div id="loadr" class="loadr"> </div>
+           <span>Loading...</span> 
+         </div>
+</div>
+
     <!-- End Contacut Us -->
     <!-- Start Fotter  -->
     <div class="footer">
@@ -614,6 +626,16 @@
       </div>
     </div>
     <!-- End Fotter  -->
-    <script src="js/master.js"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init({
+      publicKey: "F6snJO0Smsxwi8tte",
+    });
+  })();
+</script>
+  <script src="js/master.js"></script>
   </body>
 </html>
