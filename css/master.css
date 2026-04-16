@@ -1176,10 +1176,10 @@ body {
   font-size: 20px;
   border-radius: 5px;
 }
-.contact-us .forme .box-input .errorfiled{
+.contact-us .forme .box-input .errorfiled {
   border-color: red;
 }
-.contact-us .forme .box-input .error{
+.contact-us .forme .box-input .error {
   color: red;
   text-align: justify;
   margin-bottom: 5px;
@@ -1233,13 +1233,19 @@ body {
   z-index: 1000;
   display: none;
 }
-.conte {
+.conte,
+.contee
+ {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
+}
+.contee{
+  width: 400px;
+ height: auto;
 }
 .loadr {
   width: 200px;
@@ -1270,7 +1276,21 @@ body {
   transform: translate(-50%, -50%);
   animation: text 3s ease-in-out infinite;
 }
-
+.center h1 ,
+.center h2 {
+  box-sizing: border-box;
+  color: green;
+  text-align: center;
+  background-color: #ddd;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 10px ;
+  padding: 20px;
+  font-size: 25px;
+}
+.center h1{
+  color: rgba(226, 10, 10, 0.839);
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);

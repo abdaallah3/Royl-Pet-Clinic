@@ -196,6 +196,7 @@ function sendEmail(e) {
   const email = document.getElementById("email");
   const phone = document.getElementById("phone");
   const message = document.getElementById("message");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const errorName = document
     .querySelector("#name")
     .parentElement.querySelector(".error span");
@@ -209,27 +210,29 @@ function sendEmail(e) {
     .querySelector("#message ")
     .parentElement.querySelector(".error span");
 
-  if (name.value === "") {
-    name.classList.add("errorfiled");
+  if (name.value === "" || name.value.trim().length > 15) {
+    console.log(name.value.trim().length);
     errorName.innerHTML = "Enter Your Name";
+    name.classList.add("errorfiled");
   } else {
     name.classList.remove("errorfiled");
     errorName.innerHTML = "";
   }
   // 0000000000000
-  if (email.value === "") {
+  if (email.value === "" || !emailRegex.test(email.value.trim())) {
     email.classList.add("errorfiled");
-    errorGmail.innerHTML = "Enter Your Gmail ";
+    errorGmail.innerHTML = "Enter Your Real Gmail ";
   } else {
     email.classList.remove("errorfiled");
     errorGmail.innerHTML = "";
   }
   // 000000000000000
-  if (phone.value === "" || phone.value.length <= 10) {
+  if (phone.value === "" || phone.value.trim().length !== 11) {
     phone.classList.add("errorfiled");
     console.log(errorPhone);
     errorPhone.innerHTML = "Enter Your Real Number ";
   } else {
+    console.log(phone.value.length);
     phone.classList.remove("errorfiled");
     errorPhone.innerHTML = "";
   }
@@ -244,7 +247,9 @@ function sendEmail(e) {
   if (
     name.value !== "" &&
     email.value !== "" &&
+    emailRegex.test(email.value.trim()) &&
     phone.value !== "" &&
+    phone.value.trim().length === 11 &&
     message.value !== ""
   ) {
     loader.style.display = "block";
@@ -269,8 +274,7 @@ function sendEmail(e) {
           loader.style.display = "none";
           btn.disabled = false;
           btn.innerHTML = "Submit";
-          // alert(" فشل الأتصال حاول مرة أخري" + error);
-          alert("Message Sent ✅");
+          pupopmessage("Message Sent Success ✅", "h2");
           form.reset();
         }, 1000);
       })
@@ -280,8 +284,7 @@ function sendEmail(e) {
           loader.style.display = "none";
           btn.disabled = false;
           btn.innerHTML = "Submit";
-          alert(" فشل الأتصال حاول مرة أخري" + error);
-          // alert("Message Sent ✅");
+          pupopmessage("فشل الأتصال حاول مرة أخري", "h1");
           form.reset();
         }, 1000);
       });
@@ -290,13 +293,33 @@ function sendEmail(e) {
   //   btn.innerHTML = "Sending...";
 }
 document.getElementById("submit").addEventListener("click", sendEmail);
-// End Contact Us
 
-// setTimeout(() => {
-//   loader.style.display = "none";
-//   btn.disabled = false;
-//   btn.innerHTML = "Submit";
-//   alert(" فشل الأتصال حاول مرة أخري" + error);
-//   // alert("Message Sent ✅");
-//   form.reset();
-// }, 2000);
+function pupopmessage(mes, ele) {
+  // Creat OVer Lay TO pupop
+  let center = document.createElement("div");
+
+  // Add The Clas Name On Over lay
+  center.className = "center";
+  
+  center.style.display = "block";
+  // Add The Over Lay on The Body
+  document.body.appendChild(center);
+
+  // Creat Div To Add in Img
+  let conte = document.createElement("div");
+
+  // Add THe Clas Name ON THe div
+  conte.className = "contee";
+
+  // Creat H1 ele
+  let message = document.createElement(ele);
+
+  message.innerHTML = mes;
+
+  conte.appendChild(message);
+
+  center.appendChild(conte);
+  setTimeout(() => {
+    center.style.display = "none";
+  }, 1000);
+}
